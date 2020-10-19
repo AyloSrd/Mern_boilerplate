@@ -25,6 +25,18 @@ class Sidebar extends Component {
                 <p>ClassRoom record</p>
               </Link>
             </li>
+            <li className="nav-item">
+              <Link className="nav-link" to='/joinSession'>
+                <i className="nc-icon nc-circle-09"></i>
+                <p>Join Session</p>
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" to='/createSession'>
+                <i className="nc-icon nc-circle-09"></i>
+                <p>Create Session</p>
+              </Link>
+            </li>
 
           </ul>
         </div>

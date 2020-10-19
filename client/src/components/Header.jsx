@@ -37,9 +37,11 @@ const useStyles = makeStyles((theme) => ({
  },
  colorText:{
   color:"#c247a6",
+  fontSize:'4rem', 
 },
 colorTextp:{
   color:"	#fff",
+  fontSize:'4rem', 
 
 },
 icon :{
