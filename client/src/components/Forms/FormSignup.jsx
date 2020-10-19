@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { withRouter } from "react-router-dom";
+import { withRouter , Link} from "react-router-dom";
 import { UserContext } from "../Auth/UserContext";
 import apiHandler from "../../api/apiHandler";
 import NavMain from "../NavMain";
@@ -100,9 +100,9 @@ class FormSignup extends Component {
         <button className="btn">Submit</button>
         <p>
           Already have an account ?{" "}
-          {/* <Link className="link" to="/signin">
+          <Link className="link" to="/signin">
             Signin
-          </Link> */}
+          </Link>
         </p>
       </form>
       </div>

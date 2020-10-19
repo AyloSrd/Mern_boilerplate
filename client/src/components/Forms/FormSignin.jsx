@@ -34,7 +34,7 @@ class FormSignin extends Component {
       .signin(this.state)
       .then((data) => {
         this.context.setUser(data);
-        this.props.history.push("/");
+        this.props.history.push("/profile");
       })
       .catch((error) => {
         console.log(error);
