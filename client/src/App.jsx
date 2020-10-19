@@ -11,7 +11,7 @@ import Profile from "./pages/Profile";
 function App() {
   return (
     <div className="App">
-      <NavMain />
+      <NavMain/>
       <Switch>
         <Route exact path="/" component={Home} />
         <Route exact path="/signin" component={Signin} />
