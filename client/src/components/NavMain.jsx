@@ -70,7 +70,9 @@ const NavMain = (props) => {
    <Toolbar className={classes.appbarWrapper}>
    
                 <NavLink className={classes.appbarTitle} exact to="/">
+                <div >
                   <h1>My <span className={classes.colorText}>ZoomBa .</span></h1>
+                  </div>
                 </NavLink>
 
                 <ul>

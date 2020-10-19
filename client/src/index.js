@@ -3,6 +3,9 @@ import ReactDOM from "react-dom";
 import { BrowserRouter } from "react-router-dom";
 import UserProvider from "./components/Auth/UserProvider";
 import App from "./App";
+import './assets/css/bootstrap.min.css'
+import './assets/css/light-bootstrap-dashboard.css'
+import './assets/css/dashboard.css'
 
 import "./styles/reset.css";
 import "./styles/global.css";
