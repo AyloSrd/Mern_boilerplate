@@ -44,15 +44,12 @@ class UserProfile extends React.Component {
         <div className="content d-flex justify-content-center">
           <Col>
 
-          <Col md="4" >
+          <Col md="4"  sm="12" md={{ size: 6, offset: 3 }} >
               <Card className="card-user">
                 <CardBody>
                   <CardText />
                   <div className="author">
-                    {/* <div className="block block-one" />
-                    <div className="block block-two" />
-                    <div className="block block-three" />
-                    <div className="block block-four" /> */}
+                   
                     <a href="#pablo" onClick={e => e.preventDefault()}>
                       <img
                         alt="..."
@@ -69,22 +66,10 @@ class UserProfile extends React.Component {
                     Kanye I love Rick Owens’ bed design but the back is...
                   </div>
                 </CardBody>
-                {/* <CardFooter>
-                  <div className="button-container">
-                    <Button className="btn-icon btn-round" color="facebook">
-                      <i className="fab fa-facebook" />
-                    </Button>
-                    <Button className="btn-icon btn-round" color="twitter">
-                      <i className="fab fa-twitter" />
-                    </Button>
-                    <Button className="btn-icon btn-round" color="google">
-                      <i className="fab fa-google-plus" />
-                    </Button>
-                  </div>
-                </CardFooter> */}
+              
               </Card>
             </Col>
-            <Col md="8">
+            <Col lg="12">
               <Card>
                 <CardHeader>
                   <h5 className="title">Edit Profile</h5>

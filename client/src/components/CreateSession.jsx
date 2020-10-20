@@ -1,36 +1,53 @@
 import React from 'react'
-import classNames from "classnames";
+import NotificationAlert from "react-notification-alert";
 // react plugin used to create charts
 // import { Line, Bar } from "react-chartjs-2";
 
 // reactstrap components
 import {
   Button,
-  ButtonGroup,
+  UncontrolledAlert,
   Card,
   CardHeader,
   CardBody,
   CardTitle,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem,
-  UncontrolledDropdown,
-  Label,
-  FormGroup,
-  Input,
-  Table,
+ 
   Row,
   Col,
-  UncontrolledTooltip,
+
   CardImg,
   CardText,
-  CardDeck
+
 } from "reactstrap";
 
-
-function CreateSession() {
+class CreateSession extends React.Component
+ {notify = place => {
+    var color = Math.floor(Math.random() * 5 + 1);
+  
+  
+    var options = {};
+    options = {
+      place: place,
+      message: (
+        <div>
+          <div>
+            Work in progress <b>New live coding languages</b> coming soon ... 
+          </div>
+        </div>
+      ),
+      type: "danger",
+      icon: "tim-icons icon-bell-55",
+      autoDismiss: 7
+    };
+    this.refs.notificationAlert.notificationAlert(options);
+  };
+  render() {
+    
     return (
         <div className="content">
+         <div className="react-notification-alert-container">
+            <NotificationAlert ref="notificationAlert" />
+          </div>
          <Row>
             <Col xs="12">
                 <Card className="card">
@@ -50,18 +67,20 @@ function CreateSession() {
          </Row>
 
 
-       <Card className="card" style={{padding: '3rem'}} >
+     
          <Row>
         
-         <Col lg="3">
+         <Col lg="3"  >
 
-         <Card className="card"  style={{width: '17rem'}}>
+         <Card className="card "  style={{width: '17rem'}}>
+      
+          
 
-                <CardImg top src="img-src" alt="..."/>
-
+                <img top src="/assets/js.png" alt="100x100" sm="12" md={{ size: 6, offset: 3 }} classeName="rounded-circle z-depth-2" data-holder-rendered="true"/>
+           
                 <CardBody>
 
-                    <CardTitle>Card title</CardTitle>
+                    <CardTitle>JavaScript</CardTitle>
                     <CardText>Some quick example text to build on the card title and make up the bulk of the card's content.</CardText>
                     <Button color="primary">Go somewhere</Button>
 
@@ -71,14 +90,17 @@ function CreateSession() {
 
         <Col lg="3">
         <Card className="card" style={{width: '17rem'}}>
-
-                <CardImg top src="img-src" alt="..."/>
-
+                <CardImg top src="/assets/react.png" alt="..." sm="12" md={{ size: 6, offset: 3 }} classeName="rounded-circle z-depth-2" data-holder-rendered="true"/>
+               
                 <CardBody>
 
-                    <CardTitle>Card title</CardTitle>
+                    <CardTitle>React.js</CardTitle>
                     <CardText>Some quick example text to build on the card title and make up the bulk of the card's content.</CardText>
-                    <Button color="primary">Go somewhere</Button>
+                    <Button
+                              block
+                              color="primary"
+                              onClick={() => this.notify("tc")}
+                            >New Session</Button>
 
                 </CardBody>
         </Card>
@@ -86,13 +108,19 @@ function CreateSession() {
         <Col lg="3">
         <Card className="card"  style={{width: '17rem'}}>
 
-                <CardImg top src="img-src" alt="..."/>
+                {/* <CardImg > */}
+                <img top src="/assets/vue.png" alt="..." md={{ size: 6, offset: 3 }}  classeName="rounded-circle  z-depth-2" data-holder-rendered="true"/>
+                {/* </CardImg> */}
 
                 <CardBody>
 
-                    <CardTitle>Card title</CardTitle>
+                    <CardTitle>Vue.js</CardTitle>
                     <CardText>Some quick example text to build on the card title and make up the bulk of the card's content.</CardText>
-                    <Button color="primary">Go somewhere</Button>
+                    <Button
+                              block
+                              color="primary"
+                              onClick={() => this.notify("tc")}
+                            >New Session</Button>
 
                 </CardBody>
         </Card>
@@ -101,22 +129,28 @@ function CreateSession() {
         <Col lg="3">
            <Card className="card"  style={{width: '17rem'}}>
 
-                <CardImg top src="img-src" alt="..."/>
+           <img src="/assets/angular.png" alt="..."md={{ size: 6, offset: 3 }}  classeName="rounded-circle  z-depth-2"/>
 
                 <CardBody>
 
-                    <CardTitle className="text-center">Card title</CardTitle>
+                    <CardTitle className="text-center">Angular</CardTitle>
                     <CardText>Some quick example text to build on the card title and make up the bulk of the card's content.</CardText>
-                    <Button color="primary">Go somewhere</Button>
+                    <Button
+                              block
+                              color="primary"
+                              onClick={() => this.notify("tc")}
+                            >New Session</Button>
 
                 </CardBody>
         </Card>
         </Col>
       
          </Row>
-         </Card>
+        
         </div>
     )
+  }
 }
+
 
 export default CreateSession
