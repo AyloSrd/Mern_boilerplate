@@ -44,31 +44,7 @@ class UserProfile extends React.Component {
         <div className="content d-flex justify-content-center">
           <Col>
 
-          <Col md="4"  sm="12" md={{ size: 6, offset: 3 }} >
-              <Card className="card-user">
-                <CardBody>
-                  <CardText />
-                  <div className="author">
-                   
-                    <a href="#pablo" onClick={e => e.preventDefault()}>
-                      <img
-                        alt="..."
-                        className="avatar"
-                        
-                      />
-                      <h5 className="title">Mike Andrew</h5>
-                    </a>
-                    <p className="description">Ceo/Co-Founder</p>
-                  </div>
-                  <div className="card-description">
-                    Do not be scared of the truth because we need to restart the
-                    human foundation in truth And I love you like Kanye loves
-                    Kanye I love Rick Owens’ bed design but the back is...
-                  </div>
-                </CardBody>
-              
-              </Card>
-            </Col>
+          
             <Col lg="12">
               <Card>
                 <CardHeader>

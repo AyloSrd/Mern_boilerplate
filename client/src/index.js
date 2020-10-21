@@ -6,6 +6,7 @@ import App from "./App";
 import './assets/css/bootstrap.min.css'
 import './assets/css/light-bootstrap-dashboard.css'
 import './assets/css/dashboard.css'
+import "./assets/css/nucleo-icons.css";
 
 import "./styles/reset.css";
 import "./styles/global.css";

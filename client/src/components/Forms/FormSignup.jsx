@@ -3,6 +3,18 @@ import { withRouter , Link} from "react-router-dom";
 import { UserContext } from "../Auth/UserContext";
 import apiHandler from "../../api/apiHandler";
 import NavMain from "../NavMain";
+import {
+  FormGroup,
+  Label,
+  Button,
+  Card,
+  CardBody,
+  Row,
+  Col,
+  Input,
+ 
+
+} from "reactstrap";
 
 
 class FormSignup extends Component {
@@ -13,6 +25,7 @@ class FormSignup extends Component {
     lastName:"",
     email: "",
     password: "",
+    role:""
   };
 
 
@@ -44,70 +57,130 @@ class FormSignup extends Component {
   };
 
   render() {
+
     return (
-      <div>
-      <NavMain />
+
+      <div className="content  d-flex justify-content-center align-items-center">
+
+            <Card className="card-user">
+              <CardBody className="card">
+
+
       <form  className="Form" onChange={this.handleChange} onSubmit={this.handleSubmit}>
-      <h2 className="title">Signup</h2>
+
+        <h2 className="title">Signup</h2>
+        <br/>
+
+          <div className="form-row">
       
 
-{/* 
-        <label className="label" htmlFor="username">
-          Username
-        </label> */}
-        <div>
-        <input
-          className="input"
-          type="text"
-          name="firstName"
-          id="firstName"
-          value={this.state.firstName}
-          onChange={this.handleChange}
-        />
-         <input
-          className="input"
-          type="text"
-          name="lastName"
-          id="lastName"
-          value={this.state.lastName}
-          onChange={this.handleChange}
-        />
-        </div>
-        <label className="label" htmlFor="email">
-          Email
-        </label>
-        <input
-          className="input"
-          type="email"
-          name="email"
-          id="email"
-          value={this.state.email}
-          onChange={this.handleChange}
-        />
+          <FormGroup className="col-md-6">
 
-        <label className="label" htmlFor="password">
+          {/* <Label for="firstName">firstName</Label> */}
+         
+                  <Input
+                    className="input"
+                    type="text"
+                    name="firstName"
+                    id="firstName"
+                    placeholder="First name"
+                    value={this.state.firstName}
+                    onChange={this.handleChange}
+                  />
+           </FormGroup>
+
+           <FormGroup className="col-md-6">
+
+           {/* <Label for="lastName">lasttName</Label> */}
+
+                <Input
+                  className="input"
+                  type="text"
+                  name="lastName"
+                  id="lastName"
+                  placeholder="Last name"
+                  value={this.state.lastName}
+                  onChange={this.handleChange}
+                />
+            </FormGroup>
+
+        </div>
+
+        <div className="form-row">
+
+        <FormGroup className="col-md-6">
+
+            <Label className="label" htmlFor="email">
+              Email
+            </Label>
+
+       
+              <Input
+                className="input"
+                type="email"
+                name="email"
+                id="email"
+                value={this.state.email}
+                onChange={this.handleChange}
+              />
+        </FormGroup>
+
+        <FormGroup className="col-md-6">
+
+        <Label className="label" htmlFor="password">
           Password
-        </label>
-        <input
+        </Label>
+
+        <Input
           className="input"
           type="password"
           name="password"
           id="password"
+          placeholder="Password"
           value={this.state.password}
           onChange={this.handleChange}
         />
+        </FormGroup>
 
-        <button className="btn">Submit</button>
+        </div>
+
+        <FormGroup>
+
+            <Label for="exampleSelect1">Select Your Profile</Label>
+            <Input   
+            className="input"
+            type="select"
+            name="role"
+            id="role"
+            placeholder="Role"
+            value={this.state.password}
+            onChange={this.handleChange}>
+            
+              <option>Student</option>
+              <option>Teacher</option>
+             
+            </Input>
+          </FormGroup>
+
+        <Button className="btn">Submit</Button>
+
         <p>
           Already have an account ?{" "}
           <Link className="link" to="/signin">
             Signin
           </Link>
         </p>
+
       </form>
+
+      </CardBody>
+    </Card>
+    
       </div>
+   
     );
   }
 }
 
 export default withRouter(FormSignup);
+

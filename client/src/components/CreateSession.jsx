@@ -1,20 +1,14 @@
 import React from 'react'
 import NotificationAlert from "react-notification-alert";
-// react plugin used to create charts
-// import { Line, Bar } from "react-chartjs-2";
 
-// reactstrap components
 import {
   Button,
-  UncontrolledAlert,
   Card,
   CardHeader,
   CardBody,
   CardTitle,
- 
   Row,
   Col,
-
   CardImg,
   CardText,
 
@@ -22,7 +16,7 @@ import {
 
 class CreateSession extends React.Component
  {notify = place => {
-    var color = Math.floor(Math.random() * 5 + 1);
+  
   
   
     var options = {};

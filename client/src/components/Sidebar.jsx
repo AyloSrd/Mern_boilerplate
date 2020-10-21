@@ -15,7 +15,7 @@ class Sidebar extends Component {
            
             <li className="nav-item">
               <NavLink className="nav-link" to='/profile'>
-                <i className="nc-icon nc-circle-09 " ></i>
+                <i className="tim-icons icon-user-run" ></i>
                 <p>User Profile</p>
               </NavLink>
             </li>
@@ -27,16 +27,18 @@ class Sidebar extends Component {
             </li>
             <li className="nav-item">
               <Link className="nav-link" to='/joinSession'>
-                <i className="nc-icon nc-circle-09"></i>
+                <i className="tim-icons nc-circle-09"></i>
                 <p>Join Session</p>
               </Link>
             </li>
+            {/* {context.user.role === "teacher" &&  */}
             <li className="nav-item">
               <Link className="nav-link" to='/createSession'>
-                <i className="nc-icon nc-circle-09"></i>
+                <i className="tim-icons icon-simple-add"></i>
                 <p>Create Session</p>
               </Link>
             </li>
+            {/* } */}
 
           </ul>
         </div>
