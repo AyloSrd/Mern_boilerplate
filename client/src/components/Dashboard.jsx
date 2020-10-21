@@ -1,4 +1,7 @@
 import React, { Component } from 'react'
+import UserCard from "./UserCard"
+import TableList from "./TableList"
+
 import {
   Button,
   Card,
@@ -12,8 +15,10 @@ import {
   Input,
   Row,
   Col,
+  Table,
   
 } from "reactstrap";
+
 
 
 
@@ -22,9 +27,12 @@ class Dashboard extends Component {
     return (
     
     
-    <div  className="content d-flex justify-content-center">
-                      <br/>     
-                     <Col>
+
+    <div  className="content ">
+
+             
+                    
+            <Col>
 
                    
                             <Col xs="12">
@@ -39,36 +47,19 @@ class Dashboard extends Component {
                                 </CardHeader>
                                 </Card>
                             </Col>
-
+</Col>
               <br/>
-                     
-                      <Col md="6"  lg="6"  >
-                        <Card className="card-user">
-                          <CardBody>
-                            <CardText />
-                            <div className="author">
-                            
-                              <a href="#pablo" onClick={e => e.preventDefault()}>
-                                <img
-                                  alt="..."
-                                  className="avatar"
-                                  
-                                />
-                                <h5 className="title">Mike Andrew</h5>
-                              </a>
-                              <p className="description">Ceo/Co-Founder</p>
-                            </div>
-                            <div className="card-description">
-                              Do not be scared of the truth because we need to restart the
-                              human foundation in truth And I love you like Kanye loves
-                              Kanye I love Rick Owens’ bed design but the back is...
-                            </div>
-                          </CardBody>
-                        
-                        </Card>
-                      </Col>
-                      </Col>
+              
+                    <Row>
+                          <UserCard  className="card-user"/>
+
+                          <TableList  className="card-user"/>
+                   </Row>
+            
+
+             
     </div>
+
     );
   }
 }
