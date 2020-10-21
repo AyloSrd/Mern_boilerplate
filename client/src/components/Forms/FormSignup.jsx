@@ -61,7 +61,7 @@ class FormSignup extends Component {
     return (
 
       <div className="content  d-flex justify-content-center align-items-center">
-
+ <Col xs="4 text-center" >
             <Card className="card-user">
               <CardBody className="card">
 
@@ -152,17 +152,21 @@ class FormSignup extends Component {
             type="select"
             name="role"
             id="role"
-            placeholder="Role"
-            value={this.state.password}
+        
+            value={this.state.role}
             onChange={this.handleChange}>
+
+       
+              <option value="teacher">teacher</option>
+
+              <option value="student">student</option>
+
             
-              <option>Student</option>
-              <option>Teacher</option>
              
             </Input>
           </FormGroup>
 
-        <Button className="btn">Submit</Button>
+        <Button className="btn" color="primary" type="submit">Submit</Button>
 
         <p>
           Already have an account ?{" "}
@@ -175,7 +179,7 @@ class FormSignup extends Component {
 
       </CardBody>
     </Card>
-    
+    </Col>
       </div>
    
     );
