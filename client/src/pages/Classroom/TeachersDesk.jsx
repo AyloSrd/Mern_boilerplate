@@ -127,19 +127,21 @@ const TeachersDesk = props => {
     }
     
   }
+  // const contesto = props.context.user
+  // console.log('context', contesto)
 
   const handleSave = () => {
  
     const lessonToBeSaved = { 
       lessonName, 
-      teacher: `${props.context.user.firstName} ${props.context.user.lastName}`, 
+      Teacher: `${props.context.user.firstName} ${props.context.user.lastName}`, 
       id_owner: props.context.user._id,
       Homework:false, 
       html, 
       css, 
       js 
     }
-    
+    console.log('lesson', lessonToBeSaved)
     apiHandler
       .saveLesson(lessonToBeSaved)
       .then((data) => {
@@ -154,7 +156,7 @@ const TeachersDesk = props => {
     <>
       <div id="EditorAndIframeContainer">
         <div className="pane left-pane">
-          <div class="Tab">
+          <div className="Tab">
             <button 
               name="htmlTab" 
               className={`Tablinks ${ isHtmlTabOpen ? 'open' : '' }`} 
