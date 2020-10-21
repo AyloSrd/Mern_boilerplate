@@ -1,13 +1,17 @@
 import React, { useState, useEffect, useRef } from 'react'
 import '../../styles/Editor.css'
 import Editor from '../../components/Classroom/Editor'
+import { withUser } from '../../components/Auth/withUser'
 import useLocalStorage from '../../hooks/useLocalStorage'
 import Peer from 'peerjs'
 import { initiateSocketWithVideo, sendCode, callNewClassmate, streamCall, changeTab } from '../../socket/socket'
 import { getCamera } from '../../components/Classroom/getCameraAndAnswerCalls'
+import saveIcon from '../../assets/img/saveIcon.png'
+import apiHandler from '../../api/apiHandler'
 
+const TeachersDesk = props => {
 
-const TeachersDesk = () => {
+  const [ lessonName, setLessonName ] = useState('test-lesson')
 
   const [ html, setHtml ] = useLocalStorage('html', '')
   const [ css, setCss ] = useLocalStorage('css', '')
@@ -30,10 +34,7 @@ const TeachersDesk = () => {
   // const [ studentsVideos, setStudentsVideos] = useState([])
   
   useEffect(() => {
-    const myPeer = new Peer( undefined, {
-      host:'/',
-      port: '8000'
-    })
+    const myPeer = new Peer()
 
     setMyPeer(myPeer)
 
@@ -127,6 +128,28 @@ const TeachersDesk = () => {
     
   }
 
+  const handleSave = () => {
+ 
+    const lessonToBeSaved = { 
+      lessonName, 
+      teacher: `${props.context.user.firstName} ${props.context.user.lastName}`, 
+      id_owner: props.context.user._id,
+      Homework:false, 
+      html, 
+      css, 
+      js 
+    }
+    
+    apiHandler
+      .saveLesson(lessonToBeSaved)
+      .then((data) => {
+        console.log(data)
+      })
+      .catch((error) => {
+        console.log(error)
+      })
+  }
+
   return (
     <>
       <div id="EditorAndIframeContainer">
@@ -144,6 +167,13 @@ const TeachersDesk = () => {
               name="jsTab" 
               className={`Tablinks ${ isJsTabOpen ? 'open' : '' }`} 
               onClick={openTab}>JS</button>
+                          <button 
+              id="saveBtn" 
+              onClick= {handleSave}
+              className="Tablinks Right"
+            >
+              <img width="20px" src={saveIcon} alt="floppy disk icon"/>
+            </button>
           </div>
           <Editor 
             language="xml"
@@ -187,4 +217,4 @@ const TeachersDesk = () => {
   );
 }
 
-export default TeachersDesk
+export default withUser(TeachersDesk)

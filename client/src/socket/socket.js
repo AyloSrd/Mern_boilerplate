@@ -3,7 +3,7 @@ import io from 'socket.io-client'
 let socket
 
 export const initiateSocketWithVideo = (room, socketId) => {
-  socket = io('http://localhost:5000')
+  socket = io(process.env.REACT_APP_BACKEND_URL)
   console.log(`Connecting socket...`)
   if (socket && room) socket.emit('join', room, socketId)
 }
@@ -38,17 +38,6 @@ export const getActiveTab = (isHtmlTabOpen, isCssTabOpen, isJsTabOpen) => {
   })
 }
 
-// export const callNewClassmate = (stream, classmateVideo) => {
-//   if (!socket) return(true)
-//   socket.on('classmate joined', (classmateId) => {
-//     const call = myPeer.call(classmateId, stream)
-//     call.on('stream', classmateVideoStream => {
-//       console.log('is streaming', classmateVideoStream)
-//       classmateVideo.current.srcObject = classmateVideoStream
-//     })
-//   })
-// }
-
 export const callNewClassmate = (stream, myPeer, cb) => {
   if (!socket) return(true)
   socket.on('classmate joined', (classmateId) => {
@@ -57,15 +46,6 @@ export const callNewClassmate = (stream, myPeer, cb) => {
     cb(call)
   })
 }
-
-// export const streamCall = ( call, cb ) => {
-//   console.log('from streamcall', call)
-//   if (!call)  return 
-//   call.on('stream', classmateVideoStream => {
-//       console.log('is streaming', classmateVideoStream)
-//       cb(classmateVideoStream)
-//     })
-// }
 
 export const streamCall = ( call, classmateVideo ) => {
   console.log('from streamcall', call)

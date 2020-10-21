@@ -39,13 +39,14 @@ body {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1px var(--darker-grey);
-  height: 85vh;
+  height: 84vh;
   max-height: 100%;
   background-color: var(--darker-grey);
   max-width: 100%;
   overflow: hidden;
   margin-bottom: var(--standard-margin-padding);
   border: solid 0.5px var(--darker-grey);
+  margin-top: calc(4*var(--standard-margin-padding))
 }
 
 /*--------- TAB --------- */
@@ -81,6 +82,12 @@ body {
 
 #saveBtn {
   margin-right: var(--little-margin-padding)
+}
+
+.Tablinks img {
+  height: 20px;
+  width: 20px;
+  border-radius: 0;
 }
 
 div.Play {
