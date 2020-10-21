@@ -77,7 +77,7 @@ export default {
       .post(`/api/lessons/`, lesson)
       .then(res => res.data)
       .catch(errorHandler)
-  }
+  },
 
   getAll(endPoint) {
     return service.get(endPoint);
