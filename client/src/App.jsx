@@ -6,6 +6,8 @@ import Signin from "./pages/Signin";
 import Signup from "./pages/Signup";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Profile from "./pages/Profile";
+import TeachersDesk from './pages/Classroom/TeachersDesk'
+import StudentsDesk from './pages/Classroom/StudentsDesk'
 
 
 
@@ -18,6 +20,8 @@ function App() {
         <Route exact path="/signin" component={Signin} />
         <Route exact path="/signup" component={Signup} />
         <Route exact path="/signup" component={Signup} />
+        <Route exact path="/teacher" component={TeachersDesk} />
+        <Route exact path="/student" component={StudentsDesk} />
         <ProtectedRoute exact path="/profile" component={Profile} />
       
       </Switch>

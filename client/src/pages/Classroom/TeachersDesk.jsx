@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react'
-import './App.css'
-import Editor from './Components/Editor'
-import useLocalStorage from './hooks/useLocalStorage'
+import '../../styles/Editor.css'
+import Editor from '../../components/Classroom/Editor'
+import useLocalStorage from '../../hooks/useLocalStorage'
 import Peer from 'peerjs'
-import { initiateSocketWithVideo, sendCode, callNewClassmate, streamCall, changeTab } from './socket/socket'
-import { getCamera } from './peer/getCameraAndAnswerCalls'
+import { initiateSocketWithVideo, sendCode, callNewClassmate, streamCall, changeTab } from '../../socket/socket'
+import { getCamera } from '../../components/Classroom/getCameraAndAnswerCalls'
 
 
 const TeachersDesk = () => {
