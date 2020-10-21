@@ -35,7 +35,7 @@ router.post("/signup", (req, res, next) => {
       }
 
       const hashedPassword = bcrypt.hashSync(password, salt);
-      const newUser = { email, lastName, firstName, password: hashedPassword , role , description , language} ;
+      const newUser = { email, lastName, firstName, password: hashedPassword , role } ;
 
       User.create(newUser)
         .then((newUserDocument) => {

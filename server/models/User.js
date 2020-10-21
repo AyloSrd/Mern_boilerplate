@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const userSchema = new Schema({
-  fistName: String,
+  firstName: String,
   lastName: String,
   role: { type: String, enum: ["teacher", "student"], default: "student" },
   email: { type: String, required: true },
