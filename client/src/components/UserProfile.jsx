@@ -1,7 +1,7 @@
 import React ,{ Component }from 'react'
 import apiHandler from "../api/apiHandler";
-import { withRouter , Link} from "react-router-dom";
-import { UserContext } from "../components/Auth/UserContext";
+import {withUser} from "../components/Auth/withUser"
+
 
 // import { Link } from 'react-router-dom'
 // import face3 from "../assets/img/faces/face-3.jpg"
@@ -41,7 +41,6 @@ import {
 } from "reactstrap";
 
 class UserProfile extends Component {
-  static contextType = UserContext;
 
   state = {
     firstName: "",
@@ -77,7 +76,7 @@ class UserProfile extends Component {
 
   updateUser = () => {
     apiHandler
-      .updateOne("/profile" + this.props.id, this.state)
+      .updateOne("/profile" + this.props.user.context.id, this.state)
       .then(() => {
         this.props.history.push("/profile");
       })
@@ -92,7 +91,7 @@ class UserProfile extends Component {
   };
 
   handleChange = (event) => {
-    const key = event.target.name;
+    const name = event.target.name;
     const value =
       event.target.type === "checkbox"
         ? event.target.checked
@@ -100,7 +99,7 @@ class UserProfile extends Component {
         ? event.target.files[0]
         : event.target.value;
 
-    this.setState({ [key]: value });
+    this.setState({ [name]: value });
   };
 
 
@@ -110,7 +109,7 @@ class UserProfile extends Component {
     console.log(this.props);
     return (
     
-        <div className="content d-flex justify-content-center" onChange={this.handleChange} onSubmit={this.handleSubmit}>
+        <div className="content d-flex justify-content-center" onSubmit={this.handleSubmit}>
           <Col>
 
           
@@ -132,7 +131,7 @@ class UserProfile extends Component {
                           <label htmlFor="">First Name</label>
                           <Input
                            type="text"
-                            value={this.state.firstName}
+                            value={this.props.context.user.firstName}
                             name="firstName"
                             onChange={this.handleChange}
                           />
@@ -144,7 +143,7 @@ class UserProfile extends Component {
                           <label htmlFor="">Last Name</label>
                           <Input
                             type="text"
-                            value={this.state.lastName}
+                            value={this.props.context.user.lastName}
                             name="lastName"
                             onChange={this.handleChange}
                           />
@@ -162,7 +161,7 @@ class UserProfile extends Component {
                             Email address
                           </label>
                           <Input  type="email" 
-                               value={this.state.email}
+                               value={this.props.context.user.email}
                             name="email"
                             onChange={this.handleChange}
                           />
@@ -211,4 +210,4 @@ class UserProfile extends Component {
   }
 }
 
-export default withRouter(UserProfile);
+export default withUser(UserProfile);

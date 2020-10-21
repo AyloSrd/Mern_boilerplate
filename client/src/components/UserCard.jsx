@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { Component } from 'react'
 
+import { withUser } from "../components/Auth/withUser";
 import {
   
     Card,
@@ -9,14 +10,22 @@ import {
     
   } from "reactstrap";
 
-const UserCard = (props) =>{
+class UserCard extends Component{
 
     
-   
+ 
 
-        
+  state = {
+    firstName:"",
+    lastName:"",
+    email: "",
+    password: "",
+    role:""
+  };
+
+       render(){ 
         return (
-            <div>
+           
 
                     <Col md="6"  lg="6"  >
                         <Card className="card-user">
@@ -30,22 +39,23 @@ const UserCard = (props) =>{
                                   className="avatar"
                                   
                                 />
-                                <h5 className="title">{props.firstName}</h5>
+                                <h5 className="title">{this.props.context.user.email}</h5>
                               </a>
-                              <p className="description">{props.lastName}</p>
+                              <p className="description">{this.props.context.user.lastName}</p>
                             </div>
                             <div className="card-description">
-                            {props.description}
+                            {this.props.context.user.description}
                             </div>
                           </CardBody>
                         
                         </Card>
                       </Col>
                 
-            </div>
+          
         );
+      }
   };
 
 
-export default UserCard
+export default withUser(UserCard)
 

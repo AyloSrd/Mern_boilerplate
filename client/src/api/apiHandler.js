@@ -60,7 +60,7 @@ export default {
   },
 
   getOne(endPoint, id) {
-    return service.get(endPoint + "/" + id);
+    return service.get(endPoint + "/profile" + id);
   },
 
   updateOne(endPoint, data) {
