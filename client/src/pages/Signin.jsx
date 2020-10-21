@@ -9,6 +9,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundImage:`url("/assets/ash-edmonds-Koxa-GX_5zs-unsplash.jpg")`,
     backgroundRepeat:'no-repeat',
     backgroundSize:'cover',
+  
     // filter:" blur(8px)",
     // transform:" scale(1.2)",
   },

@@ -56,7 +56,7 @@ class FormSignin extends Component {
   render() {
     return (
 
-      <div  className="content  d-flex justify-content-center align-items-center">
+      <div  className="content  d-flex justify-content-center align-items-center mb-3">
  <Col xs="4 text-center" >
       <Card className="card-user">
       <CardBody className="card">

@@ -60,7 +60,7 @@ class FormSignup extends Component {
 
     return (
 
-      <div className="content  d-flex justify-content-center align-items-center">
+      <div className="content  d-flex justify-content-center ">
  <Col xs="4 text-center" >
             <Card className="card-user">
               <CardBody className="card">

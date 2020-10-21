@@ -52,6 +52,7 @@ class UserProfile extends Component {
  
   };
 
+ 
 
   componentDidMount() {
     if (this.props.action === "edit") {
@@ -76,7 +77,7 @@ class UserProfile extends Component {
 
   updateUser = () => {
     apiHandler
-      .updateOne("/profile" + this.props.user.context.id, this.state)
+      .updateOne("/profile" + this.props.user.context.id)
       .then(() => {
         this.props.history.push("/profile");
       })
@@ -91,14 +92,15 @@ class UserProfile extends Component {
   };
 
   handleChange = (event) => {
-    const name = event.target.name;
+    const name = event.target.id;
+    console.log(name)
     const value =
       event.target.type === "checkbox"
         ? event.target.checked
         : event.target.type === "file"
         ? event.target.files[0]
         : event.target.value;
-
+console.log(value)
     this.setState({ [name]: value });
   };
 
@@ -106,10 +108,10 @@ class UserProfile extends Component {
 
 
   render() {
-    console.log(this.props);
+    // console.log(this.props);
     return (
     
-        <div className="content d-flex justify-content-center" onSubmit={this.handleSubmit}>
+        <div className="content d-flex justify-content-center" onChange={this.handleChange} onSubmit={this.handleSubmit}>
           <Col>
 
           
@@ -161,7 +163,7 @@ class UserProfile extends Component {
                             Email address
                           </label>
                           <Input  type="email" 
-                               value={this.props.context.user.email}
+                            value={this.props.context.user.email}
                             name="email"
                             onChange={this.handleChange}
                           />
@@ -192,7 +194,7 @@ class UserProfile extends Component {
                 </CardBody>
 
               <CardFooter>
-                  <Button className="btn-fill" color="primary" type="submit">
+                  <Button className="btn-fill" color="primary" type="submit" onSubmit={this.handleSubmit}>
                     Save
                   </Button>
               </CardFooter>

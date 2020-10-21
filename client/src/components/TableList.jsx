@@ -16,10 +16,10 @@ import {
 class TableList extends Component {
   render() {
     return (
-      <>
-        <div className="content">
+    
+        
           <Row>
-            <Col md="12">
+            <Col md="6" lg="6">
               <Card>
                 <CardHeader>
                   <CardTitle tag="h4">Last classrooms </CardTitle>
@@ -55,8 +55,8 @@ class TableList extends Component {
             </Col>
          
           </Row>
-        </div>
-      </>
+      
+   
     );
   }
 }

@@ -47,16 +47,23 @@ class Dashboard extends Component {
                                 </CardHeader>
                                 </Card>
                             </Col>
-</Col>
+            </Col>
+
               <br/>
-              
+
+              <div  className="content ">
+              <Col xs="12">
+                                <Card className="card">
+                                <CardHeader>
                     <Row>
                           <UserCard  className="card-user"/>
 
                           <TableList  className="card-user"/>
                    </Row>
-            
-
+                   </CardHeader>
+                                </Card>
+                            </Col>
+               </div>   
              
     </div>
 
