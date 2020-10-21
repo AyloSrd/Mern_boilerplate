@@ -6,7 +6,8 @@ const User = require("../models/User");
 const salt = 10;
 
 router.post("/signin", (req, res, next) => {
-  const { email, password } = req.body;
+  const { email, password , role, description , language} = req.body;
+  
   User.findOne({ email })
     .then((userDocument) => {
       if (!userDocument) {
@@ -25,7 +26,7 @@ router.post("/signin", (req, res, next) => {
 });
 
 router.post("/signup", (req, res, next) => {
-  const { email, password, firstName, lastName } = req.body;
+  const { email, password, firstName, lastName, role } = req.body;
 
   User.findOne({ email })
     .then((userDocument) => {
@@ -34,7 +35,7 @@ router.post("/signup", (req, res, next) => {
       }
 
       const hashedPassword = bcrypt.hashSync(password, salt);
-      const newUser = { email, lastName, firstName, password: hashedPassword };
+      const newUser = { email, lastName, firstName, password: hashedPassword , role , description , language} ;
 
       User.create(newUser)
         .then((newUserDocument) => {
@@ -66,5 +67,7 @@ router.get("/logout", (req, res, next) => {
     else res.status(200).json({ message: "Succesfully disconnected." });
   });
 });
+
+
 
 module.exports = router;

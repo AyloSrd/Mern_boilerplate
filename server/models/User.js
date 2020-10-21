@@ -7,6 +7,8 @@ const userSchema = new Schema({
   role: { type: String, enum: ["teacher", "student"], default: "student" },
   email: { type: String, required: true },
   password: { type: String, required: true },
+  description:String,
+  language:{ type: String, enum: ["Javascript", "React.js","Vue.js","Angular"], default: "Javascript" },
 });
 
 const User = mongoose.model("User", userSchema);
