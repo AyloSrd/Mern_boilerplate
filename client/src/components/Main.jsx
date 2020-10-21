@@ -12,7 +12,7 @@ class Main extends Component {
   render() {
     return (
       <div className="main-panel">
-        {/* <Navbar /> */}
+   
         <Switch>
           <Route path="/dashboard" component={Dashboard} />
           <Route path="/profile" component={UserProfile} />
