@@ -1,4 +1,8 @@
-import React from 'react'
+import React ,{ Component }from 'react'
+import apiHandler from "../api/apiHandler";
+import { withRouter , Link} from "react-router-dom";
+import { UserContext } from "../components/Auth/UserContext";
+
 // import { Link } from 'react-router-dom'
 // import face3 from "../assets/img/faces/face-3.jpg"
 
@@ -28,7 +32,6 @@ import {
   CardHeader,
   CardBody,
   CardFooter,
-  CardText,
   FormGroup,
   Form,
   Input,
@@ -37,54 +40,136 @@ import {
   
 } from "reactstrap";
 
-class UserProfile extends React.Component {
+class UserProfile extends Component {
+  static contextType = UserContext;
+
+  state = {
+    firstName: "",
+    lastName: "",
+    role:"",
+    email:"",
+    description:"",
+    language:""
+ 
+  };
+
+
+  componentDidMount() {
+    if (this.props.action === "edit") {
+      apiHandler
+        .getOne("/profile", this.props.id)
+        .then((apiRes) => {
+          const user = apiRes.data;
+          this.setState({
+            firstName:user.firstName,
+            lastName:user.lastName,
+            role:user.role,
+            email:user.email,
+            description:user.description,
+            language:user.language
+          });
+        })
+        .catch((apiErr) => {
+          console.log(apiErr);
+        });
+    }
+  }
+
+  updateUser = () => {
+    apiHandler
+      .updateOne("/profile" + this.props.id, this.state)
+      .then(() => {
+        this.props.history.push("/profile");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+  handleSubmit = (event) => {
+    event.preventDefault();
+
+  };
+
+  handleChange = (event) => {
+    const key = event.target.name;
+    const value =
+      event.target.type === "checkbox"
+        ? event.target.checked
+        : event.target.type === "file"
+        ? event.target.files[0]
+        : event.target.value;
+
+    this.setState({ [key]: value });
+  };
+
+
+
+
   render() {
+    console.log(this.props);
     return (
-      <>
-        <div className="content d-flex justify-content-center">
+    
+        <div className="content d-flex justify-content-center" onChange={this.handleChange} onSubmit={this.handleSubmit}>
           <Col>
 
           
             <Col lg="12">
               <Card>
+
                 <CardHeader>
                   <h5 className="title">Edit Profile</h5>
                 </CardHeader>
+
                 <CardBody>
-                  <Form>
+
+                <Form>
+
                   <Row>
+
                       <Col className="pr-md-1" md="6">
                         <FormGroup>
-                          <label>First Name</label>
+                          <label htmlFor="">First Name</label>
                           <Input
-                            defaultValue="Mike"
-                            placeholder="Company"
-                            type="text"
+                           type="text"
+                            value={this.state.firstName}
+                            name="firstName"
+                            onChange={this.handleChange}
                           />
                         </FormGroup>
                       </Col>
+
                       <Col className="pl-md-1" md="6">
                         <FormGroup>
-                          <label>Last Name</label>
+                          <label htmlFor="">Last Name</label>
                           <Input
-                            defaultValue="Andrew"
-                            placeholder="Last Name"
                             type="text"
+                            value={this.state.lastName}
+                            name="lastName"
+                            onChange={this.handleChange}
                           />
                         </FormGroup>
                       </Col>
-                    </Row>
-                    <Row>
+
+                  </Row>
+
+
+                  <Row>
                       
                       <Col className="pl-md-1" md="12">
                         <FormGroup>
-                          <label htmlFor="exampleInputEmail1">
+                          <label htmlFor="email">
                             Email address
                           </label>
-                          <Input placeholder="mike@email.com" type="email" />
+                          <Input  type="email" 
+                               value={this.state.email}
+                            name="email"
+                            onChange={this.handleChange}
+                          />
                         </FormGroup>
                       </Col>
-                    </Row>
+
+                  </Row>
                   
                  
                     <Row>
@@ -93,30 +178,37 @@ class UserProfile extends React.Component {
                           <label>About Me</label>
                           <Input
                             cols="80"
-                            defaultValue="Lamborghini Mercy, Your chick she so thirsty, I'm in
-                            that two seat Lambo."
-                            placeholder="Here can be your description"
+                            value={this.state.description}
+                            name="lastName"
+                            onChange={this.handleChange}
                             rows="4"
                             type="textarea"
                           />
                         </FormGroup>
                       </Col>
                     </Row>
+
                   </Form>
+
                 </CardBody>
-                <CardFooter>
+
+              <CardFooter>
                   <Button className="btn-fill" color="primary" type="submit">
                     Save
                   </Button>
-                </CardFooter>
+              </CardFooter>
+              
+              
               </Card>
+
+          
             </Col>
          
           </Col>
         </div>
-      </>
+  
     );
   }
 }
 
-export default UserProfile;
+export default withRouter(UserProfile);
