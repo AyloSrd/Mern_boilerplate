@@ -1,13 +1,17 @@
 import React, { useState, useEffect, useRef } from 'react'
 import '../../styles/Editor.css'
 import Editor from '../../components/Classroom/Editor'
+import { withUser } from '../../components/Auth/withUser'
 import useLocalStorage from '../../hooks/useLocalStorage'
 import Peer from 'peerjs'
 import { initiateSocketWithVideo, subscribeToClass, getActiveTab } from '../../socket/socket'
 import { getCamera, answerCalls } from '../../components/Classroom/getCameraAndAnswerCalls'
 import saveIcon from '../../assets/img/saveIcon.png'
+import apiHandler from '../../api/apiHandler'
 
-const StudentsDesk = () => {
+const StudentsDesk = props => {
+
+  const [ lessonName, setLessonName ] = useState('test-lesson')
 
   const [ html, setHtml ] = useLocalStorage('html', '')
   const [ css, setCss ] = useLocalStorage('css', '')
@@ -37,10 +41,7 @@ const StudentsDesk = () => {
   }, [])
 
   useEffect(() => {
-    const myPeer = new Peer( undefined, {
-      host:'/',
-      port: '8000'
-    })
+    const myPeer = new Peer()
     setMyPeer(myPeer)
 
     myPeer.on('open', id => {
@@ -138,8 +139,18 @@ const StudentsDesk = () => {
     
   }
 
-  const handleSave =() => {
-    console.log(html, css, js)
+  const handleSave = () => {
+ 
+    const lessonToBeSaved = { lessonName, id_owner: props.context.user._id, Homework:true, html, css, js }
+    
+    apiHandler
+      .saveLesson(lessonToBeSaved)
+      .then((data) => {
+        console.log(data)
+      })
+      .catch((error) => {
+        console.log(error)
+      })
   }
 
   return (
@@ -224,4 +235,4 @@ const StudentsDesk = () => {
   );
 }
 
-export default StudentsDesk
+export default withUser(StudentsDesk)

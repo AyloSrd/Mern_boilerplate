@@ -50,4 +50,33 @@ export default {
       .then((res) => res.data)
       .catch(errorHandler);
   },
+
+  getStudentsLesson(id) {
+    return service
+      .get(`/api/lessons/${id}`)
+      .then(res => res.data)
+      .catch(errorHandler)
+  },
+
+  getTeachersLessons(id) {
+    return service
+      .get('/api/lessons')
+      .then(res => res.data)
+      .catch(errorHandler)
+  },
+
+  getOneLesson(id) {
+    return service
+      .get(`/api/lessons/one/${id}`)
+      .then(res => res.data)
+      .catch(errorHandler)
+  },
+
+  saveLesson(lesson) {
+    return service
+      .post(`/api/lessons/`, lesson)
+      .then(res => res.data)
+      .catch(errorHandler)
+  }
+
 };
