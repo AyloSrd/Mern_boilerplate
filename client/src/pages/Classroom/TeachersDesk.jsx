@@ -202,6 +202,9 @@ const TeachersDesk = props => {
           />
         </div>
         <div className="pane right-pane">
+          <div className="Tab centerContent height2">
+            <p>Classroom : {room}</p>
+          </div>
           <iframe 
           srcDoc={srcDoc}
             title="output"
