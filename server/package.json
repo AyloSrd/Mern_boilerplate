@@ -4,13 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "nodemon ./bin/www",
-<<<<<<< HEAD
     "start": "node ./bin/www",
     "build-react": "echo ---- creating react build --- && cd ../client  && npm install && npm run build && cp -r ./build/* ../server/public/ && cd .."
-=======
-    "build-react": "echo ---- creating react build --- && cd ../client  && npm install && npm run build && cp -r ./build/* ../server/public/ && cd ..",
-    "start": "node ./bin/www"
->>>>>>> 518eeb1cd110a35d7c8275bd6268795cd0444e92
   },
   "dependencies": {
     "bcrypt": "^5.0.0",

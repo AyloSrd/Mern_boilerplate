@@ -53,10 +53,6 @@ const lessonsRouter = require("./routes/lessons");
 app.use("/api/auth", authRouter);
 app.use("/api/lessons", lessonsRouter);
 app.use("/api/users", require("./routes/users"));
-<<<<<<< HEAD
-
-=======
->>>>>>> 518eeb1cd110a35d7c8275bd6268795cd0444e92
 if (process.env.NODE_ENV === "production") {
   app.use("*", (req, res, next) => {
     // If no routes match, send them the React HTML.

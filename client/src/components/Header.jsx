@@ -43,8 +43,8 @@ const useStyles = makeStyles((theme) => ({
   fontSize:'4rem', 
 },
 colorTextp:{
-  color:"	#c247a6",
-  fontSize:'6rem', 
+  color:"	#ffff",
+  fontSize:'4rem', 
 
 },
 icon :{
