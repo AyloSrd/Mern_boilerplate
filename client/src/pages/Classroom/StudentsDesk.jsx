@@ -11,7 +11,7 @@ import apiHandler from '../../api/apiHandler'
 
 const StudentsDesk = props => {
   const [ room, setRoom ] = useState(props.location.state.room)
-  
+
   const [ lessonName, setLessonName ] = useState('test-lesson')
 
   const [ html, setHtml ] = useLocalStorage('html', '')
@@ -221,6 +221,9 @@ const StudentsDesk = props => {
           />
         </div>
         <div className="pane right-pane">
+          <div className="Tab centerContent height2">
+            <p>Classroom : {room}</p>
+          </div>
           <iframe 
           srcDoc={srcDoc}
             title="output"
