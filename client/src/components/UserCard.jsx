@@ -61,10 +61,10 @@ class UserCard extends Component{
               <h5 className="title">{this.props.context.user.email}</h5>
               </div>
             </CardFooter>
-            <Button className="btn-fill" color="primary" type="submit">edit your Profile</Button>
+            <Button className="btn-fill" color="primary" type="submit"> <a href="./Profile">edit your Profile</a></Button>
           </Card>
         </Col>
-        
+     
         
           
         );
