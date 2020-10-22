@@ -15,7 +15,7 @@ router.patch("/profile", (req, res, next) => {
 // Mettre à jour le user dans lq bqse de donnée et renvoyer le user a jour
 
 router.post("/profile", (req, res, next) => {
-  console.log("post", req.body);
+  console.log( req.body);
   User.create(req.body)
     .then((userDocument) => {
       res.status(201).json(userDocument);
