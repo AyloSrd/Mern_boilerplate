@@ -2,7 +2,7 @@ import axios from "axios";
 
 const service = axios.create({
   baseURL: process.env.REACT_APP_BACKEND_URL,
-  withCredentials: true, 
+  withCredentials: true,
 });
 
 function errorHandler(error) {
@@ -54,29 +54,29 @@ export default {
   getStudentsLesson(id) {
     return service
       .get(`/api/lessons/${id}`)
-      .then(res => res.data)
-      .catch(errorHandler)
+      .then((res) => res.data)
+      .catch(errorHandler);
   },
 
   getTeachersLessons(id) {
     return service
-      .get('/api/lessons')
-      .then(res => res.data)
-      .catch(errorHandler)
+      .get("/api/lessons")
+      .then((res) => res.data)
+      .catch(errorHandler);
   },
 
   getOneLesson(id) {
     return service
       .get(`/api/lessons/one/${id}`)
-      .then(res => res.data)
-      .catch(errorHandler)
+      .then((res) => res.data)
+      .catch(errorHandler);
   },
 
   saveLesson(lesson) {
     return service
       .post(`/api/lessons/`, lesson)
-      .then(res => res.data)
-      .catch(errorHandler)
+      .then((res) => res.data)
+      .catch(errorHandler);
   },
 
   getAll(endPoint) {
@@ -87,8 +87,12 @@ export default {
     return service.post(endPoint, data);
   },
 
+  getUser() {
+    return service.get("/api/users/profile");
+  },
+
   getOne(endPoint, id) {
-    return service.get(endPoint + "/profile" + id);
+    return service.get(endPoint + id);
   },
 
   updateOne(endPoint, data) {

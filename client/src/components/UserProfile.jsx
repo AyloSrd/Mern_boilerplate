@@ -49,7 +49,7 @@ class UserProfile extends Component {
 
   componentDidMount() {
     apiHandler
-      .getOne("/api/users/profile")
+      .getUser()
       .then((apiRes) => {
         const user = apiRes.data;
         this.setState({
@@ -69,9 +69,9 @@ class UserProfile extends Component {
   updateUser = () => {
     apiHandler
       .updateOne("/api/users/profile", this.state)
-      .then((updatedUser) => {
-        this.context.setUser(updatedUser);
-        this.props.history.push("/profile");
+      .then((apiRes) => {
+        this.props.context.setUser(apiRes.data);
+        this.props.history.push("/dashboard");
       })
       .catch((error) => {
         console.log(error);
@@ -80,11 +80,12 @@ class UserProfile extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
+
     this.updateUser();
   };
 
   handleChange = (event) => {
-    const key = event.target.id;
+    const key = event.target.name;
     // console.log(key);
     const value =
       event.target.type === "checkbox"
@@ -92,18 +93,14 @@ class UserProfile extends Component {
         : event.target.type === "file"
         ? event.target.files[0]
         : event.target.value;
-    console.log(value);
+
     this.setState({ [key]: value });
   };
 
   render() {
-  
+    console.log(this.state);
     return (
-      <div
-        className="content d-flex justify-content-center"
-        onChange={this.handleChange}
-        onSubmit={this.handleSubmit}
-      >
+      <div className="content d-flex justify-content-center">
         <Col>
           <Col lg="12">
             <Card>
@@ -121,7 +118,6 @@ class UserProfile extends Component {
                           type="text"
                           name="firstName"
                           value={this.state.firstName}
-                        
                           onChange={this.handleChange}
                         />
                       </FormGroup>
@@ -161,7 +157,7 @@ class UserProfile extends Component {
                         <Input
                           cols="80"
                           value={this.state.description}
-                          name="lastName"
+                          name="description"
                           onChange={this.handleChange}
                           rows="4"
                           type="textarea"
@@ -177,7 +173,7 @@ class UserProfile extends Component {
                   className="btn-fill"
                   color="primary"
                   type="submit"
-                  onSubmit={this.handleSubmit}
+                  onClick={this.handleSubmit}
                 >
                   Save
                 </Button>
