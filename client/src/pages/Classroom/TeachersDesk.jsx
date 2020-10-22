@@ -12,7 +12,7 @@ import { v4 as uuidv4 } from 'uuid'
 
 const TeachersDesk = props => {
 
-  const room = uuidv4()
+  const [ room, setRoom ] = useState(uuidv4())
   const [ lessonName, setLessonName ] = useState('test-lesson')
 
   const [ html, setHtml ] = useLocalStorage('html', '')

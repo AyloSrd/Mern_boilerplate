@@ -10,7 +10,8 @@ import saveIcon from '../../assets/img/saveIcon.png'
 import apiHandler from '../../api/apiHandler'
 
 const StudentsDesk = props => {
-
+  const [ room, setRoom ] = useState(props.location.state.room)
+  
   const [ lessonName, setLessonName ] = useState('test-lesson')
 
   const [ html, setHtml ] = useLocalStorage('html', '')
@@ -52,7 +53,7 @@ const StudentsDesk = props => {
   useEffect(() => {
     if(!socketId) return console.log(socketId)
     console.log(socketId)
-    initiateSocketWithVideo('class', socketId)
+    initiateSocketWithVideo(room, socketId)
     subscribeToClass((_, code, socketId) => {
         setIncomingHtml(code.html)
         setIncomingCss(code.css)
@@ -149,7 +150,7 @@ const StudentsDesk = props => {
       css, 
       js 
     }
-    console.log('lesson', lessonToBeSaved)
+    console.log(room, lessonToBeSaved)
     apiHandler
       .saveLesson(lessonToBeSaved)
       .then((data) => {
