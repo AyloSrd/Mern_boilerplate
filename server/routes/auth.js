@@ -61,6 +61,18 @@ router.get("/isLoggedIn", (req, res, next) => {
     .catch(next);
 });
 
+router.patch("/:id", (req, res, next) => {
+  const updateValues = req.body;
+  const id = req.session.currentUser;
+  User.findByIdAndUpdate(id,updateValues, { new: true })
+    .then((userDocument) => {
+      res.status(200).json(userdDocument);
+    })
+    .catch((error) => {
+      res.status(500).json(error);
+    });
+});
+
 router.get("/logout", (req, res, next) => {
   req.session.destroy(function (error) {
     if (error) next(error);
