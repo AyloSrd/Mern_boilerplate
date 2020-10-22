@@ -53,6 +53,12 @@ const lessonsRouter = require("./routes/lessons");
 app.use("/api/auth", authRouter);
 app.use("/api/lessons", lessonsRouter);
 app.use("/api/users", require("./routes/users"));
+if (process.env.NODE_ENV === "production") {
+  app.use("*", (req, res, next) => {
+    // If no routes match, send them the React HTML.
+    res.sendFile(__dirname + "/public/index.html");
+  });
+}
 // 404 Middleware
 app.use((req, res, next) => {
   const error = new Error("Ressource not found.");
