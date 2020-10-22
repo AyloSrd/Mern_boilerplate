@@ -21,11 +21,12 @@ class TableList extends Component {
   }
 
   componentDidMount() {
-  
+    const userId = this.props
+    console.log("props", userId)
   }
 
   render() {
-    console.log(this.state.lessons)
+    console.log('state',this.state.lessons)
     return (
     
       <div className="content">

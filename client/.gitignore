@@ -19,10 +19,6 @@ package-lock.json
 .env.test.local
 .env.production.local
 .env.production
-<<<<<<< HEAD
-=======
-
->>>>>>> 7e869431ec118e4d4e09ff7cda6f125481051385
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
