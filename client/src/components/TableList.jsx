@@ -1,5 +1,7 @@
 
 import React, { Component } from 'react'
+import { withUser } from '../components/Auth/withUser'
+import apiHandler from '../api/apiHandler'
 
 // reactstrap components
 import {
@@ -14,7 +16,16 @@ import {
 } from "reactstrap";
 
 class TableList extends Component {
+  state= {
+    lessons: null
+  }
+
+  componentDidMount() {
+  
+  }
+
   render() {
+    console.log(this.state.lessons)
     return (
     
       <div className="content">
@@ -47,8 +58,6 @@ class TableList extends Component {
                                     </Button>
                                 </td>
                             </tr>
-                        
-                        
                         </tbody>
                     </Table>
                 </CardBody>
@@ -63,4 +72,4 @@ class TableList extends Component {
   }
 }
 
-export default TableList;
+export default withUser(TableList)
