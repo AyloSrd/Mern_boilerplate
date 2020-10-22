@@ -7,8 +7,11 @@ import UserProfile from './UserProfile'
 import TableList from './TableList'
 import JoinSession from './JoinSession'
 import CreateSession from './CreateSession'
+import TeachersDesk from '../pages/Classroom/TeachersDesk'
+import StudentsDesk from '../pages/Classroom/StudentsDesk'
 
 class Main extends Component {
+
   render() {
     return (
       <div className="main-panel">
@@ -19,6 +22,8 @@ class Main extends Component {
           <Route path="/class" component={TableList} />
           <Route path="/joinSession" component={JoinSession} />
           <Route path="/createSession" component={CreateSession} />
+          <Route path='/teacher' component={TeachersDesk}/>
+          <Route path='/student' component={StudentsDesk}/>
           <Redirect from='*' to='/dashboard' />
         </Switch>
         <Footer />

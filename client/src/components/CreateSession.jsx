@@ -1,5 +1,6 @@
 import React from 'react'
-import NotificationAlert from "react-notification-alert";
+import NotificationAlert from "react-notification-alert"
+import { Link } from 'react-router-dom'
 
 import {
   Button,
@@ -76,7 +77,7 @@ class CreateSession extends React.Component
 
                     <CardTitle>JavaScript</CardTitle>
                     <CardText>Some quick example text to build on the card title and make up the bulk of the card's content.</CardText>
-                    <Button color="primary">Go somewhere</Button>
+                    <Link to='/teacher'><Button color="primary">Go somewhere</Button></Link>
 
                 </CardBody>
         </Card>

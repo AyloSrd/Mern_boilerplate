@@ -8,9 +8,11 @@ import { initiateSocketWithVideo, sendCode, callNewClassmate, streamCall, change
 import { getCamera } from '../../components/Classroom/getCameraAndAnswerCalls'
 import saveIcon from '../../assets/img/saveIcon.png'
 import apiHandler from '../../api/apiHandler'
+import { v4 as uuidv4 } from 'uuid'
 
 const TeachersDesk = props => {
 
+  const room = uuidv4()
   const [ lessonName, setLessonName ] = useState('test-lesson')
 
   const [ html, setHtml ] = useLocalStorage('html', '')
@@ -48,7 +50,7 @@ const TeachersDesk = props => {
   useEffect(() => {
     if(!socketId) return console.log(socketId)
     console.log(socketId)
-    initiateSocketWithVideo('class', socketId)
+    initiateSocketWithVideo(room, socketId)
     // return () => disconnectSocketVideo('class', socketId)
   }, [ socketId ])
 
@@ -91,7 +93,7 @@ const TeachersDesk = props => {
         </script>
       </html>
     `)
-    sendCode('class', {
+    sendCode(room, {
       html,
       css, 
       js
@@ -103,7 +105,7 @@ const TeachersDesk = props => {
   
   useEffect(() => {
     console.log('changing tab')
-    changeTab( 'class', isHtmlTabOpen, isCssTabOpen, isJsTabOpen )
+    changeTab( room, isHtmlTabOpen, isCssTabOpen, isJsTabOpen )
   }, [ isHtmlTabOpen, isCssTabOpen, isJsTabOpen ])
 
   const openTab = e => {
@@ -151,6 +153,9 @@ const TeachersDesk = props => {
         console.log(error)
       })
   }
+
+  console.log('props', props)
+  console.log('class', room)
 
   return (
     <>

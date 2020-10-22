@@ -1,11 +1,14 @@
 import React, { Component } from 'react'
-import { NavLink, Link } from 'react-router-dom'
+import { NavLink, Link, withRouter } from 'react-router-dom'
 import { withUser } from "../components/Auth/withUser";
+
 
  const Sidebar = (props) => {
 
-  const { context } = props;
- 
+  const { context, location } = props;
+  console.log(location)
+  if(location.pathname.includes("teacher")) return null
+  if(location.pathname.includes("student")) return null
     return (
       <div className="sidebar">
         <div className="sidebar-wrapper">
@@ -57,4 +60,4 @@ import { withUser } from "../components/Auth/withUser";
   
 }
 
-export default withUser(Sidebar)
+export default withRouter(withUser(Sidebar))
