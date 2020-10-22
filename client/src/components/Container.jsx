@@ -45,7 +45,7 @@ function Container() {
     const classes = useStyles();
 
     return (
-        <div className={classes.root}>
+        <div className={classes.root} id="how-to-work">
             <h1 className={classes.Title}>HOW IT WORKS</h1>
             <br/>
                 <div className={classes.Card}>

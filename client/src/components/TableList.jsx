@@ -17,15 +17,16 @@ class TableList extends Component {
   render() {
     return (
     
-        
+      <div className="content">
+         <div className="container-fluid">
           <Row>
-            <Col md="6" lg="6">
+            <Col  lg="12">
               <Card>
                 <CardHeader>
                   <CardTitle tag="h4">Last classrooms </CardTitle>
-                </CardHeader>
-                <CardBody>
-                <Table responsive>
+                   </CardHeader>
+                      <CardBody>
+                        <Table responsive>
                         <thead>
                             <tr>
                                 <th className="text-center">#</th>
@@ -55,8 +56,9 @@ class TableList extends Component {
             </Col>
          
           </Row>
+          </div>
+      </div>
       
-   
     );
   }
 }

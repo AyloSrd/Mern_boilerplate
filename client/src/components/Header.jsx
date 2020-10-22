@@ -1,9 +1,12 @@
-import React from 'react'
+import React, { useEffect,useState } from 'react'
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
 import { NavLink } from "react-router-dom";
 import  IconButton from '@material-ui/core/Button';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import { Collapse } from '@material-ui/core';
+import { Link as Scroll } from 'react-scroll'
+
 
 
 
@@ -24,24 +27,24 @@ const useStyles = makeStyles((theme) => ({
 
  },
  headerTitle:{
-     position:"absolute",
+    //  position:"absolute",
      color:"#fff",
      fontFamily:'Nunito',
-     fontSize:'3rem',
+     fontSize:'4rem',
      marginTop:"200px",
     //  alignItem:"center",
      textAlign:"center",
      display:"flex",
      flexDirection:"column",
-     justifyContent:"center",
+  
  },
  colorText:{
   color:"#c247a6",
   fontSize:'4rem', 
 },
 colorTextp:{
-  color:"	#fff",
-  fontSize:'4rem', 
+  color:"	#c247a6",
+  fontSize:'6rem', 
 
 },
 icon :{
@@ -54,45 +57,59 @@ icon :{
 },
 
 goDawn:{
-  position:"absolute",
+  // position:"absolute",
   color:'#fff',
-  fontSize:"4rem",
-  marginTop:"150px"
+  fontSize:"3rem",
+  marginTop:"100px",
+
 }
 }));
 
 
-const Header = (props) => {
+const Header = () => {
 
 
     const classes = useStyles();
+    const [checked, setChecked ] = useState (false);
+    useEffect(() => {
+     setChecked(true);
+      
+    }, [])
 
 
 
     return (
-      <div className={classes.root}>
 
-      
+     
+
+      <div className={classes.root}>
+      <Collapse in={checked}
+      {...(checked ? { timeout: 1500} : {})}
+      collapsedHeight={50}>
+
       <div className={classes.headerTitle}>
      
       <h1 >My <span className={classes.colorText}>ZoomBa .</span></h1>
       
       <br/>
-      <h2 className={classes.colorTextp}>live code sharing App</h2>
+      <h1 className={classes.colorTextp}>live code sharing App</h1>
 
-      <NavLink  to="/signin"> 
-      <Button to="/signin" className={classes.icon}> Register Now</Button>
+      <NavLink  to="/signup"> 
+      <Button className={classes.icon}> Register Now</Button>
       </NavLink>
 
+<Scroll to="how-to-work" smooth={true}>
       <IconButton>
      <ExpandMoreIcon className={classes.goDawn}/>
      </IconButton>
-
-
+</Scroll>
+   
       </div>
-      
+      </Collapse>
       
       </div>
+    
+   
     );
   
 }

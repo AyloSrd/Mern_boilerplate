@@ -17,6 +17,7 @@
     "react-notification-alert": "0.0.12",
     "react-router-dom": "^5.1.2",
     "react-scripts": "^3.4.4",
+    "react-scroll": "^1.8.1",
     "reactstrap": "^8.6.0",
     "socket.io-client": "^2.3.1"
   },

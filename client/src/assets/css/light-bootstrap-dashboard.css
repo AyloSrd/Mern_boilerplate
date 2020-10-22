@@ -3499,7 +3499,8 @@
               border-radius: 0; } }
   
   .card-columns .card {
-    margin-bottom: 1.25rem; }
+    margin-bottom: 1.25rem; 
+  margin-top: 100px;}
   
   @media (min-width: 576px) {
     .card-columns {

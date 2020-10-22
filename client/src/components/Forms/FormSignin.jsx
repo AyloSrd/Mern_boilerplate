@@ -57,8 +57,8 @@ class FormSignin extends Component {
     return (
 
       <div  className="content  d-flex justify-content-center align-items-center mb-3">
- <Col xs="4 text-center" >
-      <Card className="card-user">
+ <Col xs="4 text-center mt-5" >
+      <Card className="card-user mt-5">
       <CardBody className="card">
      
       <form  className="Form" onChange={this.handleChange} onSubmit={this.handleSubmit}>

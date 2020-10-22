@@ -61,9 +61,9 @@ class FormSignup extends Component {
     return (
 
       <div className="content  d-flex justify-content-center ">
- <Col xs="4 text-center" >
-            <Card className="card-user">
-              <CardBody className="card">
+ <Col xs="4 text-center  mt-5 " >
+            <Card className="card-user mt-5">
+              <CardBody className="card  ">
 
 
       <form  className="Form" onChange={this.handleChange} onSubmit={this.handleSubmit}>
@@ -76,7 +76,7 @@ class FormSignup extends Component {
 
           <FormGroup className="col-md-6">
 
-          {/* <Label for="firstName">firstName</Label> */}
+          <Label for="firstName">firstName</Label>
          
                   <Input
                     className="input"
@@ -91,7 +91,7 @@ class FormSignup extends Component {
 
            <FormGroup className="col-md-6">
 
-           {/* <Label for="lastName">lasttName</Label> */}
+           <Label for="lastName">lasttName</Label>
 
                 <Input
                   className="input"
