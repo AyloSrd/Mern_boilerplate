@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const Lesson = require("../models/Lesson");
 
-router.get("/all", (req, res, next) => {
+router.get("/", (req, res, next) => {
 	Lesson.find({ isHomework: false })
 	  .then((lessons) => {
 		if (!lessons) return res.status(400).json({ message: "Invalid owner" });
@@ -12,7 +12,7 @@ router.get("/all", (req, res, next) => {
 });
 
 router.get("/all/:student", (req, res, next) => {
-	Lesson.find({ owner: req.params.student })
+	Lesson.find({ id_owner: req.params.student })
 	  .then((lessons) => {
 		if (!lessons) return res.status(400).json({ message: "Invalid owner" });
 		res.status(200).json(lessons);
@@ -39,11 +39,12 @@ router.post("/", (req, res, next) => {
 });
 
 router.delete("/:id", (req, res, next) => {
-	Lesson.findByIdAndDelete(req.params.id)
-	.then((lesson) => {
-	res.status(200).json(lesson);
+	const lessonId = req.params.id
+	Lesson.findByIdAndDelete(lessonId)
+	.then((lessonDeleted) => {
+		res.status(200).json(lessonDeleted._id)
 	})
 	.catch(next);
-});
+})
 
 module.exports = router;

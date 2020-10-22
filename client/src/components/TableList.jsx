@@ -21,8 +21,34 @@ class TableList extends Component {
   }
 
   componentDidMount() {
-    const userId = this.props
-    console.log("props", userId)
+    const userId = this.props.context.user._id
+    apiHandler
+      .getStudentsLesson(userId)
+      .then(lessons => this.setState({ lessons }))
+      .catch(err => console.error(err))
+  }
+
+  handleDelete = lessonId => {
+    
+    console.log('lessonId', lessonId)
+    apiHandler
+      .deleteLesson(lessonId)
+      .then(lessonDeleted =>{
+        this.setState(prevLessons => {
+          return {
+            lessons: prevLessons.lessons.filter(lesson => lesson._id !== lessonDeleted)
+          }
+        })
+      })
+      .catch(err => console.error(err))
+  }
+
+  handleOpen = (code) => {
+    
+    this.props.history.push({
+      pathname: '/homework',
+      state: { code: code }
+    })
   }
 
   render() {
@@ -38,27 +64,50 @@ class TableList extends Component {
                   <CardTitle tag="h4">Last classrooms </CardTitle>
                    </CardHeader>
                       <CardBody>
-                        <Table responsive>
+                        <Table>
                         <thead>
                             <tr>
                                 <th className="text-center">#</th>
                                 <th>Name</th>
                                 <th>Link</th>
-                                
+                                <th className="text-right">See notes</th>
                                 <th className="text-right">Delete</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td className="text-center">1</td>
-                                <td>Andrew Mike</td>
-                                <td>Develop</td>                           
-                                <td className="text-right">
-                                    <Button className="btn-icon" color="danger" size="sm">
+                            {
+                              this.state.lessons && this.state.lessons.map((lesson, idx) => {
+                                return(
+                                <tr key={lesson._id}>
+                                    <td className="text-center">{idx + 1}</td>
+                                    <td>Javascript</td>
+                                    <td>{lesson._id}</td>                           
+                                    <td className="text-right">
+                                      <Button 
+                                        name={lesson._id}
+                                        className="btn-icon" 
+                                        color="primary" 
+                                        size="sm"
+                                        onClick={()=>this.handleOpen(lesson._id, {html:lesson.html, css:lesson.css, js:lesson.js})}
+                                      >
+                                        <i className="fa fa-arrow-right" />
+                                      </Button>
+                                    </td>                           
+                                    <td className="text-right">
+                                      <Button 
+                                        name={lesson._id}
+                                        className="btn-icon" 
+                                        color="danger" 
+                                        size="sm"
+                                        onClick={()=>this.handleDelete(lesson._id)}
+                                      >
                                         <i className="fa fa-times" />
-                                    </Button>
-                                </td>
-                            </tr>
+                                      </Button>
+                                    </td>
+                                </tr>
+                                )
+                              })
+                            }
                         </tbody>
                     </Table>
                 </CardBody>

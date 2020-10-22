@@ -8,7 +8,7 @@ import ProtectedRoute from "./components/ProtectedRoute";
 import Profile from "./pages/Profile";
 import TeachersDesk from './pages/Classroom/TeachersDesk'
 import StudentsDesk from './pages/Classroom/StudentsDesk'
-
+import Homework from './pages/Classroom/Homework'
 
 
 function App() {
@@ -22,6 +22,7 @@ function App() {
         <Route exact path="/signup" component={Signup} />
         <Route exact path="/teacher" component={TeachersDesk} />
         <Route exact path="/student" component={StudentsDesk} />
+        <Route exact path="/homework" component={Homework} />
         <ProtectedRoute exact path="/profile" component={Profile} />
       
       </Switch>

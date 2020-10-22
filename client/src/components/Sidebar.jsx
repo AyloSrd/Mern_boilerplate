@@ -9,6 +9,7 @@ import { withUser } from "../components/Auth/withUser";
   console.log(location)
   if(location.pathname.includes("teacher")) return null
   if(location.pathname.includes("student")) return null
+  if(location.pathname.includes("homework")) return null
     return (
       <div className="sidebar">
         <div className="sidebar-wrapper">

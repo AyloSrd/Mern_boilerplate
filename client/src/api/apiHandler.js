@@ -53,12 +53,12 @@ export default {
 
   getStudentsLesson(id) {
     return service
-      .get(`/api/lessons/${id}`)
+      .get(`/api/lessons/all/${id}`)
       .then((res) => res.data)
       .catch(errorHandler);
   },
 
-  getTeachersLessons(id) {
+  getTeachersLessons() {
     return service
       .get("/api/lessons")
       .then((res) => res.data)
@@ -67,7 +67,7 @@ export default {
 
   getOneLesson(id) {
     return service
-      .get(`/api/lessons/one/${id}`)
+      .get(`/api/lessons/${id}`)
       .then((res) => res.data)
       .catch(errorHandler);
   },
@@ -77,6 +77,14 @@ export default {
       .post(`/api/lessons/`, lesson)
       .then((res) => res.data)
       .catch(errorHandler);
+  },
+
+  deleteLesson(id) {
+    console.log(id)
+    return service  
+      .delete(`/api/lessons/${id}`)
+      .then(res => res.data)
+      .catch(errorHandler)
   },
 
   getAll(endPoint) {

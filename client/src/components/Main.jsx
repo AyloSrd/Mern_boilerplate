@@ -9,7 +9,7 @@ import JoinSession from './JoinSession'
 import CreateSession from './CreateSession'
 import TeachersDesk from '../pages/Classroom/TeachersDesk'
 import StudentsDesk from '../pages/Classroom/StudentsDesk'
-
+import Homework from '../pages/Classroom/Homework'
 class Main extends Component {
 
   render() {
@@ -24,6 +24,7 @@ class Main extends Component {
           <Route path="/createSession" component={CreateSession} />
           <Route path='/teacher' component={TeachersDesk}/>
           <Route path='/student' component={StudentsDesk}/>
+          <Route path='/homework' component={Homework}/>
           <Redirect from='*' to='/dashboard' />
         </Switch>
         <Footer />
