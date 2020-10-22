@@ -145,36 +145,27 @@ class FormSignup extends Component {
         </div>
 
         <FormGroup>
-
-            <Label for="exampleSelect1">Select Your Profile</Label>
-            <Input   
+          <Label for="exampleSelect1">Select Your Profile</Label>
+          <Input   
             className="input"
             type="select"
             name="role"
             id="role"
         
             value={this.state.role}
-            onChange={this.handleChange}>
-
-       
-              <option value="teacher">teacher</option>
-
-              <option value="student">student</option>
-
-            
-             
-            </Input>
-          </FormGroup>
-
+            onChange={this.handleChange}
+          >
+            <option value="teacher">teacher</option>
+            <option value="student">student</option>
+          </Input>
+        </FormGroup>
         <Button className="btn" color="primary" type="submit">Submit</Button>
-
         <p>
           Already have an account ?{" "}
           <Link className="link" to="/signin">
             Signin
           </Link>
         </p>
-
       </form>
 
       </CardBody>
