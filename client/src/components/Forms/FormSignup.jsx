@@ -25,7 +25,7 @@ class FormSignup extends Component {
     lastName:"",
     email: "",
     password: "",
-    role:""
+    role:"teacher"
   };
 
 
