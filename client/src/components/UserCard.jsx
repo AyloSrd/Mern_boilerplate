@@ -50,9 +50,7 @@ class UserCard extends Component{
                 <p className="description">{this.props.context.user.firstName}</p>
               </div>
               <div className="card-description">
-                Do not be scared of the truth because we need to restart the
-                human foundation in truth And I love you like Kanye loves
-                Kanye I love Rick Owens’ bed design but the back is...
+              ©
                 {this.props.context.user.description}
               </div>
             </CardBody>
