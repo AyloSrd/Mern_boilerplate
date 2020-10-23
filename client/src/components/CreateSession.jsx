@@ -65,7 +65,7 @@ class CreateSession extends React.Component
      
          <Row>
         
-         <Col lg="3"  style={{marginRight:"20px"}}>
+         <Col lg="4">
 
          <Card className="card "  style={{width: '17rem'}}>
       
@@ -83,7 +83,7 @@ class CreateSession extends React.Component
         </Card>
         </Col>
 
-        <Col lg="3" style={{marginRight:"20px"}}>
+        <Col lg="4">
         <Card className="card" style={{width: '17rem'}}>
                 <CardImg top src="/assets/react.png" alt="..." style={{margin:"auto", height:"100px",width:"auto"}}/>
                
@@ -100,7 +100,7 @@ class CreateSession extends React.Component
                 </CardBody>
         </Card>
         </Col>
-        <Col lg="3" style={{marginRight:"20px"}}>
+        <Col lg="4">
         <Card className="card"  style={{width: '17rem'}}>
 
                 {/* <CardImg > */}
@@ -121,7 +121,7 @@ class CreateSession extends React.Component
         </Card>
         </Col>
 
-        <Col lg="3" style={{marginRight:"20px"}}>
+        <Col lg="4">
            <Card className="card"  style={{width: '17rem'}}>
 
            <img src="/assets/angular.png" alt="..."style={{margin:"auto", height:"100px",width:"auto"}}/>
@@ -139,7 +139,7 @@ class CreateSession extends React.Component
                 </CardBody>
         </Card>
         </Col>
-        <Col lg="3" style={{marginRight:"20px"}}>
+        <Col lg="4">
            <Card className="card"  style={{width: '17rem'}}>
 
            <img src="/assets/ts.png" alt="..."style={{margin:"auto", height:"100px",width:"auto"}}/>
@@ -157,7 +157,7 @@ class CreateSession extends React.Component
                 </CardBody>
         </Card>
         </Col>
-        <Col lg="3" style={{marginRight:"20px"}}>
+        <Col lg="4" >
            <Card className="card"  style={{width: '17rem'}}>
 
            <img src="/assets/python.png" alt="..." style={{margin:"auto", height:"100px",width:"auto"}}/>
