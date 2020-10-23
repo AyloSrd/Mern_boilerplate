@@ -76,7 +76,7 @@ class CreateSession extends React.Component
                 <CardBody>
 
                     <CardTitle>JavaScript</CardTitle>
-                    <CardText>Some quick example text to build on the card title and make up the bulk of the card's content.</CardText>
+                    <CardText>Teach the basis of the web, in this new VanillaJS lesson</CardText>
                     <Link to='/teacher'><Button color="primary">Go somewhere</Button></Link>
 
                 </CardBody>
@@ -89,8 +89,8 @@ class CreateSession extends React.Component
                
                 <CardBody>
 
-                    <CardTitle>React.js</CardTitle>
-                    <CardText>Some quick example text to build on the card title and make up the bulk of the card's content.</CardText>
+                    <CardTitle>React</CardTitle>
+                    <CardText>Teach modern and efficient React, the most loved JS framework</CardText>
                     <Button
                               block
                               color="primary"
@@ -109,8 +109,8 @@ class CreateSession extends React.Component
 
                 <CardBody>
 
-                    <CardTitle>Vue.js</CardTitle>
-                    <CardText>Some quick example text to build on the card title and make up the bulk of the card's content.</CardText>
+                    <CardTitle>Vue</CardTitle>
+                    <CardText>Teach the main framework for startup apps, with Vue</CardText>
                     <Button
                               block
                               color="primary"
@@ -129,7 +129,7 @@ class CreateSession extends React.Component
                 <CardBody>
 
                     <CardTitle className="text-center">Angular</CardTitle>
-                    <CardText>Some quick example text to build on the card title and make up the bulk of the card's content.</CardText>
+                    <CardText>Build the next big scalable project with Angular</CardText>
                     <Button
                               block
                               color="primary"
@@ -139,12 +139,47 @@ class CreateSession extends React.Component
                 </CardBody>
         </Card>
         </Col>
-      
+        <Col lg="3" style={{marginRight:"20px"}}>
+           <Card className="card"  style={{width: '17rem'}}>
+
+           <img src="/assets/ts.png" alt="..."style={{margin:"auto", height:"100px",width:"auto"}}/>
+
+                <CardBody>
+
+                    <CardTitle className="text-center">TypeScript</CardTitle>
+                    <CardText>Add static type definitions to your lessons, with TypeScript</CardText>
+                    <Button
+                              block
+                              color="primary"
+                              onClick={() => this.notify("tc")}
+                            >New Session</Button>
+
+                </CardBody>
+        </Card>
+        </Col>
+        <Col lg="3" style={{marginRight:"20px"}}>
+           <Card className="card"  style={{width: '17rem'}}>
+
+           <img src="/assets/python.png" alt="..." style={{margin:"auto", height:"100px",width:"auto"}}/>
+
+                <CardBody>
+
+                    <CardTitle className="text-center">Python</CardTitle>
+                    <CardText>Teach Data Science and Pythonicness with this lesson</CardText>
+                    <Button
+                              block
+                              color="primary"
+                              onClick={() => this.notify("tc")}
+                            >New Session</Button>
+
+                </CardBody>
+        </Card>
+        </Col> 
          </Row>
         
         </div>
     )
-  }
+  }  
 }
 
 

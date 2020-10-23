@@ -48,9 +48,9 @@ function JoinSession(props) {
                 
                 <Col lg="3" className=" d-flex justify-content-center" >
 
-                    <Card className="card d-block  "  style={{width: '17rem'}}>
+                    <Card className="card d-block  "  style={{width: '50rem'}}>
 
-                                <img  src="/assets/js.png" alt="..."  classeName="rounded-circle center " data-holder-rendered="true"/>
+                                <img  src="/assets/js.png" alt="..." style={{margin:"auto", height:"100px",width:"auto"}}/>
   
                          <CardBody>
 
