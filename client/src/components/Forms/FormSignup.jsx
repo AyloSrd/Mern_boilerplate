@@ -9,11 +9,9 @@ import {
   Button,
   Card,
   CardBody,
-  Row,
   Col,
   Input,
- 
-
+  Alert
 } from "reactstrap";
 
 
@@ -25,7 +23,8 @@ class FormSignup extends Component {
     lastName:"",
     email: "",
     password: "",
-    role:"teacher"
+    role:"teacher", 
+    message: null
   };
 
 
@@ -52,6 +51,7 @@ class FormSignup extends Component {
         this.props.history.push("/");
       })
       .catch((error) => {
+        this.setState({message: 'email already taken, peace and love'})
         console.log(error);
       });
   };
@@ -62,6 +62,9 @@ class FormSignup extends Component {
 
       <div className="content  d-flex justify-content-center ">
  <Col xs="4 text-center  mt-5 " >
+      {
+        this.state.message && <Alert color='danger'>{this.state.message}</Alert>
+      } 
             <Card className="card-user mt-5">
               <CardBody className="card  ">
 
@@ -169,9 +172,9 @@ class FormSignup extends Component {
       </form>
 
       </CardBody>
-    </Card>
+    </Card> 
     </Col>
-      </div>
+    </div>
    
     );
   }

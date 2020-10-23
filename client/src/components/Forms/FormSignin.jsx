@@ -6,6 +6,7 @@ import apiHandler from "../../api/apiHandler";
 // import "../../styles/Form.css";
 
 import {
+  Alert,
   FormGroup,
   Label,
   Input,
@@ -22,6 +23,7 @@ class FormSignin extends Component {
   state = {
     email: "",
     password: "",
+    message: null
   };
 
   handleChange = (event) => {
@@ -50,6 +52,7 @@ class FormSignin extends Component {
       .catch((error) => {
         console.log(error);
         // Display error message here, if you set the state
+        this.setState({message: "wrong credentials, try again!"})
       });
   };
 
@@ -58,6 +61,9 @@ class FormSignin extends Component {
 
       <div  className="content  d-flex justify-content-center align-items-center mb-3">
  <Col xs="4 text-center mt-5" >
+      {
+        this.state.message && <Alert color='danger'>{this.state.message}</Alert>
+      } 
       <Card className="card-user mt-5">
       <CardBody className="card">
      
@@ -96,10 +102,8 @@ class FormSignin extends Component {
                 <Button className="btn" color="primary" type="submit">Submit</Button>
 
       </form>
-     
    </CardBody>
-</Card>
-
+</Card>  
 </Col>
   </div>    
     

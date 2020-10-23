@@ -20,9 +20,9 @@ function App() {
         <Route exact path="/signin" component={Signin} />
         <Route exact path="/signup" component={Signup} />
         <Route exact path="/signup" component={Signup} />
-        <Route exact path="/teacher" component={TeachersDesk} />
-        <Route exact path="/student" component={StudentsDesk} />
-        <Route exact path="/homework" component={Homework} />
+        <ProtectedRoute exact path="/teacher" component={TeachersDesk} />
+        <ProtectedRoute exact path="/student" component={StudentsDesk} />
+        <ProtectedRoute exact path="/homework" component={Homework} />
         <ProtectedRoute exact path="/profile" component={Profile} />
       
       </Switch>
