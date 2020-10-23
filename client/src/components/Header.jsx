@@ -7,12 +7,6 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import { Collapse } from '@material-ui/core';
 import { Link as Scroll } from 'react-scroll'
 
-
-
-
-
-
-
 const useStyles = makeStyles((theme) => ({
  root :{
    minHeight:"100vh",
@@ -22,9 +16,12 @@ const useStyles = makeStyles((theme) => ({
    backgroundSize:'cover',
    display:"flex",
    justifyContent:"center",
-  //  alignItems:"center",
-
-
+ },
+ noOutline : {
+  "&:hover,&:focus, $notchedOutline" : {
+    outline:"none",
+    borderWidth: 0
+  }
  },
  headerTitle:{
     //  position:"absolute",
@@ -61,7 +58,6 @@ goDawn:{
   color:'#fff',
   fontSize:"3rem",
   marginTop:"100px",
-
 }
 }));
 
@@ -98,8 +94,8 @@ const Header = () => {
       <Button className={classes.icon}> Register Now</Button>
       </NavLink>
 
-<Scroll to="how-to-work" smooth={true}>
-      <IconButton>
+<Scroll to="how-to-work" smooth={true} duration={300} delay={100}>
+      <IconButton className={classes.noOutline}>
      <ExpandMoreIcon className={classes.goDawn}/>
      </IconButton>
 </Scroll>

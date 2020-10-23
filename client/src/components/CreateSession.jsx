@@ -65,13 +65,13 @@ class CreateSession extends React.Component
      
          <Row>
         
-         <Col lg="3"  >
+         <Col lg="3"  style={{marginRight:"20px"}}>
 
          <Card className="card "  style={{width: '17rem'}}>
       
           
 
-                <img top src="/assets/js.png" alt="100x100" sm="12" md={{ size: 6, offset: 3 }} classeName="rounded-circle z-depth-2" data-holder-rendered="true"/>
+                <img top src="/assets/js.png" alt="..." style={{margin:"auto", height:"100px",width:"auto"}}/>
            
                 <CardBody>
 
@@ -83,9 +83,9 @@ class CreateSession extends React.Component
         </Card>
         </Col>
 
-        <Col lg="3">
+        <Col lg="3" style={{marginRight:"20px"}}>
         <Card className="card" style={{width: '17rem'}}>
-                <CardImg top src="/assets/react.png" alt="..." sm="12" md={{ size: 6, offset: 3 }} classeName="rounded-circle z-depth-2" data-holder-rendered="true"/>
+                <CardImg top src="/assets/react.png" alt="..." style={{margin:"auto", height:"100px",width:"auto"}}/>
                
                 <CardBody>
 
@@ -100,11 +100,11 @@ class CreateSession extends React.Component
                 </CardBody>
         </Card>
         </Col>
-        <Col lg="3">
+        <Col lg="3" style={{marginRight:"20px"}}>
         <Card className="card"  style={{width: '17rem'}}>
 
                 {/* <CardImg > */}
-                <img top src="/assets/vue.png" alt="..." md={{ size: 6, offset: 3 }}  classeName="rounded-circle  z-depth-2" data-holder-rendered="true"/>
+                <img top src="/assets/vue.png" alt="..." style={{margin:"auto", height:"100px",width:"auto"}}/>
                 {/* </CardImg> */}
 
                 <CardBody>
@@ -121,10 +121,10 @@ class CreateSession extends React.Component
         </Card>
         </Col>
 
-        <Col lg="3">
+        <Col lg="3" style={{marginRight:"20px"}}>
            <Card className="card"  style={{width: '17rem'}}>
 
-           <img src="/assets/angular.png" alt="..."md={{ size: 6, offset: 3 }}  classeName="rounded-circle  z-depth-2"/>
+           <img src="/assets/angular.png" alt="..."style={{margin:"auto", height:"100px",width:"auto"}}/>
 
                 <CardBody>
 

@@ -1,21 +1,21 @@
 const steps = [
     
 {
-    title:"register",
-    description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tincidunt praesent semper feugiat nibh sed pulvinar proin gravida",
-    imageURL:"./assets/ash-edmonds-Koxa-GX_5zs-unsplash.jpg"
+    title:"join",
+    description:"Join your favourite teacher on private e-classroom for live and interactive coding-lessons.",
+    imageURL:"./assets/join.jpg"
 
 },
 {
-    title:"code",
-    description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tincidunt praesent semper feugiat nibh sed pulvinar proin gravida",
-    imageURL:"./assets/ash-edmonds-Koxa-GX_5zs-unsplash.jpg"
+    title:"learn",
+    description:"You can pause at any time and experiment with the code. Then just hit play and resume the teacher's stream",
+    imageURL:"./assets/learn.jpg"
 
 },
 {
-    title:"save",
-    description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tincidunt praesent semper feugiat nibh sed pulvinar proin gravida",
-    imageURL:"./assets/ash-edmonds-Koxa-GX_5zs-unsplash.jpg"
+    title:"re-learn",
+    description:"A save-button allows you to save entire code pieces and re-access them later, to maximize your learning experience",
+    imageURL:"./assets/re-learn.jpg"
 
 }
 ];

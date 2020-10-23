@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
         fontFamily:'Nunito',
         fontSize:'3rem',
         textAlign:"center",
-        
+        color: "#c247a6",
         marginTop:"50px",
     },
    Card :{
@@ -46,7 +46,7 @@ function Container() {
 
     return (
         <div className={classes.root} id="how-to-work">
-            <h1 className={classes.Title}>HOW IT WORKS</h1>
+            <h1 className={classes.Title}>Learn from the best devs</h1>
             <br/>
                 <div className={classes.Card}>
                 <ImageCard  step={steps[0]}/>

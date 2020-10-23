@@ -61,7 +61,7 @@ class TableList extends Component {
             <Col  lg="12">
               <Card>
                 <CardHeader>
-                  <CardTitle tag="h4">Last classrooms </CardTitle>
+                  <CardTitle tag="h4">Your lessons </CardTitle>
                    </CardHeader>
                       <CardBody>
                         <Table>
