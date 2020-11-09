@@ -240,7 +240,7 @@ const StudentsDesk = props => {
       </div>
       <div id="VideoContainer">
       <div className="Video SmallV">
-          <video playsInline controls ref={userVideo} autoPlay/>
+          <video playsInline controls muted ref={userVideo} autoPlay/>
         </div>
         <div className="Video">
           <video playsInline controls ref={classmateVideo} autoPlay/>
