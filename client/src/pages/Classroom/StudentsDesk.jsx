@@ -42,7 +42,11 @@ const StudentsDesk = props => {
   }, [])
 
   useEffect(() => {
-    const myPeer = new Peer()
+    const myPeer = new Peer(undefined, {
+			secure: true, 
+			host: 'peerjs-server-codeschool.herokuapp.com', 
+			port: 443
+    })
     setMyPeer(myPeer)
 
     myPeer.on('open', id => {
@@ -236,10 +240,10 @@ const StudentsDesk = props => {
       </div>
       <div id="VideoContainer">
       <div className="Video SmallV">
-          <video playsInline muted ref={userVideo} autoPlay/>
+          <video playsInline controls ref={userVideo} autoPlay/>
         </div>
         <div className="Video">
-          <video playsInline muted ref={classmateVideo} autoPlay/>
+          <video playsInline controls ref={classmateVideo} autoPlay/>
         </div>
 		  </div>
     </>
